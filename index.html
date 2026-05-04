@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Plugin in framework later-->
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="icon" href="assets/icon/passforge.svg" type="image/x-icon">
+    <link rel="shortcut-icon" href="assets/icon/passforge.svg" type="image/x-icon">
+    <title>PassForge</title>
+  </head>
+
+  <body>
+    <div id="app-container">
+      <h1 id="app-name">PassForge</h1>
+
+      <!--Input field-->
+      <div id="input-group">
+        <input type="password" id="input-Pass" placeholder="Enter password...">
+        <label id="unmask">
+          <input type="checkbox" id="show-pass">Show Password
+        </label>
+        <button id="check-btn">Check</button>
+        <button id="clear-btn">Clear</button>
+        <button id="reset-btn">Reset</button>
+      </div>
+
+      <!--The 'Tracker'-->
+      <div id="strength-meter-cont">
+        <div id="strength-meter"></div>
+      </div>
+
+      <!--Password requirements-->
+      <ul id="rule-req">
+        <!--Populate later-->
+      </ul>
+
+      <!--Enhancment modal-->
+      <div id="passwd-enhancer" style="display: none;">
+        <p id="enhanceMessage">Make your password strong?</p>
+        <button id="enhance">Yes</button>
+        <button id="cancel-enhance">I want to be hacked</button>
+      </div>
+
+      <!-- Forbidden/Simple password warning -->
+      <div id="forbiddenModal" style="display: none;">
+        <div id="forbidMessage">
+          <h3 id="warning">Forbidden Password</h3>
+          <p id="bad-message">You have tried to use a forbidden password, Please enter a better password"</p>
+          <button id="close-forbid-modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!--JavaScript logic injection-->
+    <script src="assets/logic/checker.js"></script>
+    <script src="assets/logic/generator.js"></script>
+    <script src="assets/logic/main.js"></script>
+
+  <footer>
+    <div>
+      <h6 class="footer">PassForge&copy  Created by Gonzo Codes</h6>
+  </footer>
+
+  </body>
+</html>
