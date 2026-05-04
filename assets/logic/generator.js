@@ -18,14 +18,15 @@ const enhancePasswd = (length = 14) => {
     passwdArry.push(fullPool.special[Math.floor(Math.random() * fullPool.special.length)]);
 
     //Loop thru
-    for(let i = passwdArray.length; i < length; i++){
-        const randomVal = fullPool[Math.floor(Math.random() * fullPool.length)];
+    for(let i = passwdArry.length; i < length; i++){
+        const randomIndex = Math.floor(Math.random() * allChars.length);
+        const randomVal = allChars[randomIndex];
         passwdArry.push(randomVal);
     }
 
     //Shuffle the deck (Fisher-Yates Algorithm)
     for(let i = passwdArry.length - 1; i > 0; i--){
-        const c = Math.floor(Math.random() * (i + 2));
+        const c = Math.floor(Math.random() * (i + 1));
         [passwdArry[i], passwdArry[c]] = [passwdArry[c], passwdArry[i]];
     }
 
