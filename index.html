@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Plugin in framework later-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link                       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="icon" href="assets/icon/passforge.svg" type="image/x-icon">
     <link rel="shortcut-icon" href="assets/icon/passforge.svg" type="image/x-icon">
@@ -15,19 +17,21 @@
       <h1 id="app-name">PassForge</h1>
 
       <!--Input field-->
-      <div id="input-group">
-        <input type="password" id="input-Pass" placeholder="Enter password...">
+      <div id="input-container">
+        <div id="input-group">
+          <input type="password" id="input-Pass" placeholder="Enter password...">
 
-        <div id="toggles">
-          <label id="unmask">
-            <input type="checkbox" id="show-pass">Show Password
-          </label>
+          <div id="toggles">
+            <label id="unmask">
+              <input type="checkbox" id="show-pass">Show Password
+            </label>
+          </div>
         </div>
 
         <div id="main-btns">
-          <button id="check-btn">Check</button>
-          <button id="clear-btn">Clear</button>
-          <button id="reset-btn">Reset</button>
+          <button class="inputBtn" id="check-btn">Check</button>
+          <button class="inputBtn" id="clear-btn">Clear</button>
+          <button class="inputBtn" id="reset-btn">Reset</button>
         </div>
       </div>
 
@@ -45,7 +49,7 @@
       <div id="passwd-enhancer" style="display: none;">
         <p id="enhanceMessage">Make your password strong?</p>
         <button id="enhance">Yes</button>
-        <button id="cancel-enhance">I want to be hacked</button>
+        <button id="cancel-enhance">No, thanks</button>
       </div>
 
       <!-- Forbidden/Simple password warning -->

@@ -1,0 +1,102 @@
+
+:root{
+    --primary-royal: #4b0082;
+    --gold-accent: #d4af37;
+    --light-bg: #f8f9fa;
+    --text-dark: #2d3436;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition-smooth: all 0.3s ease;
+}
+
+body{
+    font-family: Montserrat, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.0;
+    margin: 0;
+    padding: 0;
+}
+
+#app-container{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+#input-container{
+    background: whitesmoke;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    border-top: 5px solid var(--primary-royal);
+    transiton: var(--transition-smooth);
+}
+
+#input-container:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+#input-Pass{
+    width: 100%;
+    border: 2px solid var(--priamary-royal);
+}
+
+h1, h2, h3{
+    color: var(--primary-royal);
+    font-weight: 7000;
+    margin-bottom: 1rem;
+}
+
+#main-btns{
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 24px;
+    letter-spacing: 1px;
+
+}
+
+#check-btn{
+    background-color: #29C662;
+    color: ghostwhite;
+}
+
+#check-btn:hover{
+    background-color: #14C2A3;
+    transition: var(--transition-smooth);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+}
+
+#reset-btn{
+    background-color: #FFB762;
+    color: dimgrey;
+}
+
+#reset-btn:hover{
+    background-color: #F45E49;
+    transform: translateY(-4px);
+    transition: var(--transition-smooth);
+}
+
+#clear-btn{
+    background-color: #48AEFF;
+    color: whitesmoke;
+}
+
+#clear-btn:hover{
+    background-color: #61DBCC;
+    transform: translateY(-5px);
+    transition: var(--transition-smooth);
+}
+
+.inputBtn{
+    border-radius: 25px;
+    box-shadow: var(--shadow-soft);
+    width: 35%;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+    margin: 25px;
+}
