@@ -17,7 +17,6 @@ const strengthLevel = document.querySelector('.meter-fill');
             score = 0;
         }
 
-
         const level = {
 
             0: { width: '0%', color: 'transparent' },
@@ -33,13 +32,6 @@ const strengthLevel = document.querySelector('.meter-fill');
         bar.style.width = width;
         bar.style.backgroundColor = color;
     };
-
-
-/*
- * Evaluates the password input against PassForges rules
- * @param {string} passwd - password to be checked
- * @returns {object} - the report with the rules and strength
- */
 
 const passwdCheck = (passwd) => {
     //Password rules
@@ -75,7 +67,6 @@ const passwdCheck = (passwd) => {
         console.log('Forbidden phrase used, enter a different password!!');
     }
 
-
     //Assign the strength rating for the password
     let strength = '';
     if(rulesPassed === 5 && !results.forbidden){
@@ -89,7 +80,6 @@ const passwdCheck = (passwd) => {
     } else{
        strength ='Enter a valid password'
     }
-
 
     return{
         results,

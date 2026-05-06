@@ -249,6 +249,21 @@ body {
     font-weight: 700;
 }
 
+.rule-pass {
+    color: var(--accent-green);
+    list-style: none;
+    padding-left: 0;
+}
+
+.rule-pass::before {
+    content: "✅";
+    color: var(--accent-green);
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+
+
 #forbidMessage{
     background: var(--bg-surface);
     border-radius: 20px;

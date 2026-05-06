@@ -1,4 +1,3 @@
-
 //The Chaos Engine
 const enhancePasswd = (length = 14) => {
   const fullPool = {
@@ -24,7 +23,7 @@ const enhancePasswd = (length = 14) => {
         passwdArry.push(randomVal);
     }
 
-    //Shuffle the deck (Fisher-Yates Algorithm)
+    //Hit a Fisher-Yates Algorithm
     for(let i = passwdArry.length - 1; i > 0; i--){
         const c = Math.floor(Math.random() * (i + 1));
         [passwdArry[i], passwdArry[c]] = [passwdArry[c], passwdArry[i]];

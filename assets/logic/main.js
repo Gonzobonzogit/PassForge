@@ -21,7 +21,7 @@ const toggleModals = (modal, show) => {
 };
 
 const resetRuleMarkers = () => {
-    document.querySelectorAll('[data-rule]').forEach(li => li.classList.remove('rule-fail'));
+    document.querySelectorAll('[data-rule]').forEach(li => li.classList.remove('rule-fail', 'rule-pass'));
 };
 
 const updateRuleMarkers = (results) => {
@@ -31,6 +31,7 @@ const updateRuleMarkers = (results) => {
             const li = document.querySelector(`[data-rule="${rule}"]`);
             if(!li) return;
             li.classList.toggle('rule-fail', !results[rule]);
+            li.classList.toggle('rule-pass', results[rule]);
         });
 };
 
@@ -129,9 +130,11 @@ clearBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
     if(lastCheck){
         inputArea.value = lastCheck;
-        togglePassShow.checked = false;
         console.log(`Fine, keep your weak password: ${lastCheck}`);
     } else {
         console.log('No password to revert to!!')
     }
+
+    toggleShowPass.checked = false;
+    inputArea.type ='password';
 });
