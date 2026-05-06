@@ -21,7 +21,7 @@
     --accent-gold: #f9e2af;    /* Catppuccin Yellow - Warning/Attention */
 
     --shadow-dark: 0 8px 30px rgba(0, 0, 0, 0.5);
-    --transition-smooth: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -37,7 +37,7 @@ body {
 }
 
 #app-container {
-    max-width: 800px; /* Tightened for better focus */
+    max-width: 800px;
     margin: 0 auto;
     padding: 60px 20px;
     flex: 1;
@@ -50,9 +50,9 @@ body {
 }
 
 #passforgeIco {
-    height: 300px; /* Scaled down from 500px to be more proportional */
+    height: 300px;
     width: 300px;
-    background-color: transparent; /* Removed background to let it float */
+    background-color: transparent;
     filter: drop-shadow(0 0 15px rgba(189, 147, 249, 0.3));
 }
 
@@ -78,7 +78,7 @@ body {
     box-shadow: var(--shadow-dark);
     border-top: 4px solid var(--accent-purple);
     margin-bottom: 30px;
-    transition: var(--transition-smooth);
+    transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #input-group {
@@ -96,7 +96,7 @@ body {
     border-radius: 10px;
     color: var(--text-main);
     font-size: 1.1rem;
-    transition: var(--transition-smooth);
+    transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none;
 }
 
@@ -135,7 +135,7 @@ body {
     transition: var(--transition-smooth);
     text-transform: uppercase;
     font-size: 0.9rem;
-    color: var(--bg-main); /* Dark text on bright buttons */
+    color: var(--bg-main);
 }
 
 #check-btn {
@@ -174,7 +174,7 @@ body {
     height: 10px;
     background: var(--bg-input);
     border-radius: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     overflow: hidden;
 }
 
@@ -186,6 +186,16 @@ body {
 }
 
 /* Collapsible Sections */
+#rules-container{
+    width: 360px;
+    flex: 1;
+    margin: 0 auto;
+    padding: 0px;
+    transition: var(--transition-smooth);
+}
+
+
+
 .collapsible-section {
     background-color: var(--bg-surface);
     margin-bottom: 15px;
@@ -207,7 +217,7 @@ body {
     cursor: pointer;
     background: transparent;
     transition: var(--transition-smooth);
-    list-style: disc; /* Keeps the default browser arrow */
+    list-style: disc;
 }
 
 .collapsible-trigger:hover {
@@ -242,6 +252,82 @@ body {
     content: "❌";
     color: var(--accent-red);
     font-weight: 700;
+}
+
+#forbidMessage{
+    background: var(--bg-surface);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--shadow-dark);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.enhance-card{
+    background: var(--bg-surface);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--shadow-dark);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    border-top: 4px solid var(--accent-purple);
+}
+
+#enhance{
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    background-color: var(--accent-green);
+    color: var(--bg-main);
+}
+
+#cancel-enhance{
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    background-color: var(--accent-red);
+    color: var(--bg-main);
+}
+
+#close-forbid-modal{
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    background-color: var(--accent-red);
+    color: var(--bg-main);
+}
+
+#passwd-enhancer,#forbiddenModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
 }
 
 footer {
