@@ -1,24 +1,19 @@
-/*
-   THE GONZO PALETTE: Dracula x Catppuccin Fusion
-   A blend of deep, moody depths and soft, readable accents.
-*/
-
 :root {
-    /* Backgrounds - The "Void" */
-    --bg-main: #1e1e2e;        /* Catppuccin Mocha Base */
-    --bg-surface: #24273a;     /* Slightly lighter for depth */
-    --bg-input: #181825;       /* Mantle - deep for inputs */
+    /* Background*/
+    --bg-main: #1e1e2e;
+    --bg-surface: #24273a;
+    --bg-input: #181825;
 
-    /* Text - The "Light" */
-    --text-main: #cdd6f4;      /* Soft white for high readability */
-    --text-muted: #bac2de;     /* Subtext for secondary info */
+    /* Text */
+    --text-main: #cdd6f4;
+    --text-muted: #bac2de;
 
-    /* Accents - The "Jewels" */
-    --accent-purple: #bd93f9;  /* Dracula Purple - Royal & Bold */
-    --accent-blue: #89b4fa;    /* Catppuccin Blue - Calm & Professional */
-    --accent-green: #a6e3a1;   /* Catppuccin Green - Soft Success */
-    --accent-red: #f38ba8;     /* Catppuccin Red - Soft Error/Danger */
-    --accent-gold: #f9e2af;    /* Catppuccin Yellow - Warning/Attention */
+    /* Accents */
+    --accent-purple: #bd93f9;
+    --accent-blue: #89b4fa;
+    --accent-green: #a6e3a1;
+    --accent-red: #f38ba8;
+    --accent-gold: #f9e2af;
 
     --shadow-dark: 0 8px 30px rgba(0, 0, 0, 0.5);
     --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
