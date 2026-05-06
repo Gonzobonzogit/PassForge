@@ -1,11 +1,9 @@
-
 //Grab the checker's button ids
 const inputArea = document.getElementById('input-Pass');
 const checkBtn = document.getElementById('check-btn');
 const clearBtn = document.getElementById('clear-btn');
 const resetBtn = document.getElementById('reset-btn');
 const toggleShowPass = document.getElementById('show-pass');
-
 
 //Grab the modal element Ids
 const forbidModal = document.getElementById('forbiddenModal');
@@ -14,23 +12,35 @@ const enhanceModal = document.getElementById('passwd-enhancer');
 const confirmEnhanceBtn = document.getElementById('enhance');
 const cancelEnhanceBtn = document.getElementById('cancel-enhance');
 
-/*----The Vault--------
-  Keep the input password in memory */
-let lastCheck = '';
 
+//The Vault - Keeps the last checked password in memory
+let lastCheck = '';
 
 const toggleModals = (modal, show) => {
     modal.style.display = show ? 'block' : 'none';
+};
+
+const resetRuleMarkers = () => {
+    document.querySelectorAll('[data-rule]').forEach(li => li.classList.remove('rule-fail'));
+};
+
+const updateRuleMarkers = (results) => {
+        const rules = ['length', 'upper', 'lower', 'number', 'specialChar'];
+
+        rules.forEach(rule => {
+            const li = document.querySelector(`[data-rule="${rule}"]`);
+            if(!li) return;
+            li.classList.toggle('rule-fail', !results[rule]);
+        });
 };
 
 
 //Activating the check button
 const performCheck = () => {
     const passwd = inputArea.value;
+    if(!passwd) return;
 
-    if(!passwd) return; //Stop the program from running an empty input line
-
-    //Updates the vault every time a password is checkd
+    //Updates the vault when passwd is checkd
     lastCheck = passwd;
 
     const report = passwdCheck(passwd);
@@ -38,9 +48,8 @@ const performCheck = () => {
     if(report.results.forbidden){
         console.log('Your password is too simple and therefore it is forbidden! Please enter a new password!');
         toggleModals(forbidModal, true);
-            return;
+        return;
     };
-
 
 //continue on to normal strength report if no forbidden password
     console.log(`Password Strength: ${report.strength}`);
@@ -55,20 +64,34 @@ const performCheck = () => {
 
 checkBtn.addEventListener('click', performCheck);
 
-//allow the user to click or press enter to run check
-
+//click or press enter to run check
 inputArea.addEventListener('keydown', (event) =>{
-    if(event.key === 'Enter'){
-        performCheck();
-    }
+    if(event.key === 'Enter') performCheck();
 });
+
+//Lets the strength meter listen
+inputArea.addEventListener('input', () => {
+    const passwd = inputArea.value;
+
+    if(!passwd){
+        scoreStrength(0);
+        resetRuleMarkers();
+        return;
+    };
+
+    const report = passwdCheck(passwd);
+    scoreStrength(report.score);
+    updateRuleMarkers(report.results);
+});
+
+
 
 //Mask/unmask
 toggleShowPass.addEventListener('change', () => {
     inputArea.type = toggleShowPass.checked ? 'text' : 'password';
 });
 
-//Enhancement is desired
+//if enhancement is desired
 confirmEnhanceBtn.addEventListener('click', () => {
     const newPass = enhancePasswd(14);
     inputArea.value = newPass;
@@ -80,21 +103,22 @@ confirmEnhanceBtn.addEventListener('click', () => {
     console.log(`Your password has been enhanced to a strong password. Your new password is ${newPass}`);
 });
 
-//close and cancel
+//close and cancel buttons
 closeForbidBtn.addEventListener('click', () => toggleModals(forbidModal, false));
 cancelEnhanceBtn.addEventListener('click', () => toggleModals(enhanceModal, false));
 
 
-//Activating the clear button
+//clear button
 clearBtn.addEventListener('click', () => {
     inputArea.value = "";
+    scoreStrength(0);
+    resetRuleMarkers();
     toggleModals(enhanceModal, false);
     toggleModals(forbidModal, false);
     console.log('Password has been cleared!');
 });
 
-
-//Activation of reset button
+//reset button
 resetBtn.addEventListener('click', () => {
     if(lastCheck){
         inputArea.value = lastCheck;
