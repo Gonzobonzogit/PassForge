@@ -7,7 +7,7 @@ const strengthLevel = document.querySelector('.meter-fill');
    //Fill the strength bar
     const scoreStrength = (score) => {
         //translation
-        if(score === 5){
+        if(score >= 5){
             score = 3;
         } else if(score >= 3){
             score = 2;
@@ -44,7 +44,7 @@ const strengthLevel = document.querySelector('.meter-fill');
 const passwdCheck = (passwd) => {
     //Password rules
    const passwdRules = {
-        length: { regex: null, min: 10, label: 'Password needs a min of 10 characters' },
+       length: { regex: null, min: 10, label: 'Password needs a min of 10 characters' },
         lower: { regex: /[a-z]/, label: 'Password must contain at least 1 lowercase letter' },
         upper: { regex: /[A-Z]/, label: 'Password must contain at least 1 uppercase letter' },
         number: { regex: /[0-9]/, label: 'Password must contain at least 1 number' },
@@ -82,7 +82,7 @@ const passwdCheck = (passwd) => {
         strength = 'Strong';
     } else if(rulesPassed < 5 && rulesPassed >= 4){
         strength = 'Moderate';
-    } else if(rulesPassed <= 4 && rulesPassed > 1){
+    } else if(rulesPassed <= 4 && rulesPassed >= 1){
         strength = 'Weak';
     } else if(results.forbidden){
         strength = 'FORBIDDEN';
