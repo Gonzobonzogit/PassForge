@@ -11,13 +11,13 @@ const closeForbidBtn = document.getElementById('close-forbid-modal');
 const enhanceModal = document.getElementById('passwd-enhancer');
 const confirmEnhanceBtn = document.getElementById('enhance');
 const cancelEnhanceBtn = document.getElementById('cancel-enhance');
-
+const autoRules = document.getElementById('rulesDetails');
 
 //The Vault - Keeps the last checked password in memory
 let lastCheck = '';
 
 const toggleModals = (modal, show) => {
-    modal.style.display = show ? 'block' : 'none';
+    modal.style.display = show ? 'flex' : 'none';
 };
 
 const resetRuleMarkers = () => {
@@ -57,9 +57,12 @@ const performCheck = () => {
 
     if(report.strength === 'Weak' || report.strength === 'Moderate'){
         toggleModals(enhanceModal, true);
+        autoRules.open = true;
     }else{
         toggleModals(enhanceModal, false);
     }
+
+    updateRuleMarkers(report.results);
 };
 
 checkBtn.addEventListener('click', performCheck);
@@ -70,7 +73,7 @@ inputArea.addEventListener('keydown', (event) =>{
 });
 
 //Lets the strength meter listen
-inputArea.addEventListener('input', () => {
+inputArea.addEventListener('input', (event) => {
     const passwd = inputArea.value;
 
     if(!passwd){
@@ -81,7 +84,6 @@ inputArea.addEventListener('input', () => {
 
     const report = passwdCheck(passwd);
     scoreStrength(report.score);
-    updateRuleMarkers(report.results);
 });
 
 
@@ -101,6 +103,9 @@ confirmEnhanceBtn.addEventListener('click', () => {
 
     toggleModals(enhanceModal, false);
     console.log(`Your password has been enhanced to a strong password. Your new password is ${newPass}`);
+    autoRules.open = false;
+    scoreStrength(5);
+    resetRuleMarkers();
 });
 
 //close and cancel buttons
@@ -112,6 +117,7 @@ cancelEnhanceBtn.addEventListener('click', () => toggleModals(enhanceModal, fals
 clearBtn.addEventListener('click', () => {
     inputArea.value = "";
     scoreStrength(0);
+    autoRules.open = false;
     resetRuleMarkers();
     toggleModals(enhanceModal, false);
     toggleModals(forbidModal, false);
