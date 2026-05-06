@@ -35,20 +35,24 @@
               </div>
             </div>
 
-      <div id="main-btns">
-        <button class="inputBtn" id="check-btn">Check</button>
-        <button class="inputBtn" id="clear-btn">Clear</button>
-        <button class="inputBtn" id="reset-btn">Reset</button>
-      </div>
-    </div>
+        <div id="main-btns">
+            <button class="inputBtn" id="check-btn">Check</button>
+            <button class="inputBtn" id="clear-btn">Clear</button>
+            <button class="inputBtn" id="reset-btn">Reset</button>
+        </div>
+       </div>
+
 
       <!--The 'Tracker'-->
-    <div id="strength-meter-cont">
-      <div class="meter-fill" id="strength-meter"></div>
+       <div id="strength-meter-cont">
+        <div class="meter-fill" id="strength-meter"></div>
+       </div>
     </div>
+    <!--Password requirements-->
 
-      <!--Password requirements-->
-    <details class="collapsible-section">
+
+<div id="rules-container">
+    <details id="rulesDetails" class="collapsible-section">
       <summary class="collapsible-trigger">What we check for: </summary>
       <div class="collapsible-content1">
         <ul id="rules-req">
@@ -62,7 +66,7 @@
     </details>
 
     <!-- Forbidden passwords -->
-    <details class="collapsible-section">
+    <details id="forbid-auto" class="collapsible-section">
       <summary class="collapsible-trigger">Forbidden Passwords: </summary>
       <div class="collapsible-content2">
         <p>Do not use the following passwords or any variation of the following:</p>
@@ -76,27 +80,30 @@
         </ul>
       </div>
     </details>
+</div>
 
 
 
+    <!--Enhancment modal-->
+<div id="passwd-enhancer" style="display: none;">
+  <div class="enhance-card">
+    <p id="enhanceMessage">Make your password strong?</p>
+    <button id="enhance">Yes</button>
+    <button id="cancel-enhance">No, thanks</button>
+  </div>
+</div>
 
-      <!--Enhancment modal-->
-      <div id="passwd-enhancer" style="display: none;">
-        <p id="enhanceMessage">Make your password strong?</p>
-        <button id="enhance">Yes</button>
-        <button id="cancel-enhance">No, thanks</button>
-      </div>
-
-      <!-- Forbidden/Simple password warning -->
-      <div id="forbiddenModal" style="display: none;">
-        <div id="forbidMessage">
-          <h3 id="warning">Forbidden Password</h3>
-          <p id="bad-message">You have tried to use a forbidden password, Please enter a better password"</p>
-          <button id="close-forbid-modal">Close</button>
-        </div>
-      </div>
-
+    <!-- Forbidden/Simple password warning -->
+<div id="forbiddenModal" style="display: none;">
+  <div class="forbid-card">
+    <div id="forbidMessage">
+      <h3 id="warning">Forbidden Password</h3>
+      <p id="bad-message">You have tried to use a forbidden password, Please enter a better password"</p>
+      <button id="close-forbid-modal">Close</button>
     </div>
+  </div>
+</div>
+
 
 
     <!--JavaScript logic injection-->
