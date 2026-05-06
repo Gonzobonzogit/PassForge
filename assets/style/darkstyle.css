@@ -1,0 +1,257 @@
+/*
+   THE GONZO PALETTE: Dracula x Catppuccin Fusion
+   A blend of deep, moody depths and soft, readable accents.
+*/
+
+:root {
+    /* Backgrounds - The "Void" */
+    --bg-main: #1e1e2e;        /* Catppuccin Mocha Base */
+    --bg-surface: #24273a;     /* Slightly lighter for depth */
+    --bg-input: #181825;       /* Mantle - deep for inputs */
+
+    /* Text - The "Light" */
+    --text-main: #cdd6f4;      /* Soft white for high readability */
+    --text-muted: #bac2de;     /* Subtext for secondary info */
+
+    /* Accents - The "Jewels" */
+    --accent-purple: #bd93f9;  /* Dracula Purple - Royal & Bold */
+    --accent-blue: #89b4fa;    /* Catppuccin Blue - Calm & Professional */
+    --accent-green: #a6e3a1;   /* Catppuccin Green - Soft Success */
+    --accent-red: #f38ba8;     /* Catppuccin Red - Soft Error/Danger */
+    --accent-gold: #f9e2af;    /* Catppuccin Yellow - Warning/Attention */
+
+    --shadow-dark: 0 8px 30px rgba(0, 0, 0, 0.5);
+    --transition-smooth: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#app-container {
+    max-width: 800px; /* Tightened for better focus */
+    margin: 0 auto;
+    padding: 60px 20px;
+    flex: 1;
+}
+
+#title-cont {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#passforgeIco {
+    height: 300px; /* Scaled down from 500px to be more proportional */
+    width: 300px;
+    background-color: transparent; /* Removed background to let it float */
+    filter: drop-shadow(0 0 15px rgba(189, 147, 249, 0.3));
+}
+
+#inputTitle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#app-name {
+    color: var(--accent-purple);
+    font-size: 2.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(189, 147, 249, 0.5);
+}
+
+#input-container {
+    background: var(--bg-surface);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--shadow-dark);
+    border-top: 4px solid var(--accent-purple);
+    margin-bottom: 30px;
+    transition: var(--transition-smooth);
+}
+
+#input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#input-Pass {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: var(--bg-input);
+    border: 2px solid #45475a;
+    border-radius: 10px;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+#input-Pass:focus {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 8px rgba(189, 147, 249, 0.4);
+}
+
+#toggles {
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#toggles input {
+    margin-right: 10px;
+    accent-color: var(--accent-purple);
+}
+
+#main-btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.inputBtn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--bg-main); /* Dark text on bright buttons */
+}
+
+#check-btn {
+    background-color: var(--accent-green);
+}
+
+#check-btn:hover {
+    background-color: #bcf0b5;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(166, 227, 161, 0.4);
+}
+
+#clear-btn {
+    background-color: var(--accent-blue);
+}
+
+#clear-btn:hover {
+    background-color: #b4d3ff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(137, 180, 250, 0.4);
+}
+
+#reset-btn {
+    background-color: var(--accent-red);
+}
+
+#reset-btn:hover {
+    background-color: #ffafb7;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(243, 139, 168, 0.4);
+}
+
+/* The Strength Meter */
+#strength-meter-cont {
+    width: 100%;
+    height: 10px;
+    background: var(--bg-input);
+    border-radius: 5px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+
+.meter-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+/* Collapsible Sections */
+.collapsible-section {
+    background-color: var(--bg-surface);
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid #45475a;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+
+.collapsible-section:hover {
+    border-color: var(--accent-purple);
+}
+
+.collapsible-trigger {
+    padding: 15px 20px;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    background: transparent;
+    transition: var(--transition-smooth);
+    list-style: disc; /* Keeps the default browser arrow */
+}
+
+.collapsible-trigger:hover {
+    background-color: rgba(189, 147, 249, 0.1);
+    color: var(--accent-purple);
+}
+
+.collapsible-content1, .collapsible-content2 {
+    padding: 20px;
+    background-color: var(--bg-input);
+    border-top: 1px solid #45475a;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.collapsible-content1 ul, .collapsible-content2 ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.collapsible-content1 li, .collapsible-content2 li {
+    margin-bottom: 10px;
+}
+
+.rule-fail{
+    color: var(--accent-red);
+    list-style: none;
+    padding-left: 0;
+}
+
+.rule-fail::before{
+    content: "❌";
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.footer {
+    margin: 0;
+    opacity: 0.6;
+}
