@@ -119,6 +119,7 @@ clearBtn.addEventListener('click', () => {
     scoreStrength(0);
     autoRules.open = false;
     resetRuleMarkers();
+    toggleShowPass.checked = false;
     toggleModals(enhanceModal, false);
     toggleModals(forbidModal, false);
     console.log('Password has been cleared!');
@@ -128,6 +129,7 @@ clearBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
     if(lastCheck){
         inputArea.value = lastCheck;
+        togglePassShow.checked = false;
         console.log(`Fine, keep your weak password: ${lastCheck}`);
     } else {
         console.log('No password to revert to!!')
