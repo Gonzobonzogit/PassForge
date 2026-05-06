@@ -62,7 +62,7 @@ const performCheck = () => {
     }else{
         toggleModals(enhanceModal, false);
     }
-
+    autoRules.open = true;
     updateRuleMarkers(report.results);
 };
 
