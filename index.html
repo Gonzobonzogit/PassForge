@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link                       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/style/darkstyle.css">
     <link rel="icon" href="assets/icon/passforge.svg" type="image/x-icon">
     <link rel="shortcut-icon" href="assets/icon/passforge.svg" type="image/x-icon">
     <title>PassForge</title>
@@ -14,36 +14,71 @@
 
   <body>
     <div id="app-container">
-      <h1 id="app-name">PassForge</h1>
+     <div id="title-cont">
+       <span>
+         <img src="assets/icon/passforge.svg" alt="Site Logo" id="passforgeIco">
+       </span>
+     </div>
+       <!--Input field-->
 
-      <!--Input field-->
-      <div id="input-container">
-        <div id="input-group">
-          <input type="password" id="input-Pass" placeholder="Enter password...">
+       <div id="input-container">
+         <div id="inputTitle">
+           <h1 id="app-name">PassForge</h1>
+         </div>
+            <div id="input-group">
+              <input type="password" id="input-Pass" placeholder="Enter password...">
 
-          <div id="toggles">
-            <label id="unmask">
-              <input type="checkbox" id="show-pass">Show Password
-            </label>
-          </div>
-        </div>
+              <div id="toggles">
+                <label id="unmask">
+                  <input type="checkbox" id="show-pass">Show Password
+                </label>
+              </div>
+            </div>
 
-        <div id="main-btns">
-          <button class="inputBtn" id="check-btn">Check</button>
-          <button class="inputBtn" id="clear-btn">Clear</button>
-          <button class="inputBtn" id="reset-btn">Reset</button>
-        </div>
+      <div id="main-btns">
+        <button class="inputBtn" id="check-btn">Check</button>
+        <button class="inputBtn" id="clear-btn">Clear</button>
+        <button class="inputBtn" id="reset-btn">Reset</button>
       </div>
+    </div>
 
       <!--The 'Tracker'-->
-      <div id="strength-meter-cont">
-        <div id="strength-meter"></div>
-      </div>
+    <div id="strength-meter-cont">
+      <div class="meter-fill" id="strength-meter"></div>
+    </div>
 
       <!--Password requirements-->
-      <ul id="rule-req">
-        <!--Populate later-->
-      </ul>
+    <details class="collapsible-section">
+      <summary class="collapsible-trigger">What we check for: </summary>
+      <div class="collapsible-content1">
+        <ul id="rules-req">
+          <li data-rule="length">Passwords ideally should be a minimum of 10 characters</li>
+          <li data-rule="upper">Passwords should contain at least 1 uppercase letter</li>
+          <li data-rule="lower">Passwords should contain at least 1 lowercase letter</li>
+          <li data-rule="number">Passwords should contain at least 1 number</li>
+          <li data-rule="specialChar">Passwords should contain at least 1 special character</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Forbidden passwords -->
+    <details class="collapsible-section">
+      <summary class="collapsible-trigger">Forbidden Passwords: </summary>
+      <div class="collapsible-content2">
+        <p>Do not use the following passwords or any variation of the following:</p>
+        <ul id="doNotUse">
+          <li>password</li>
+          <li>1234567890</li>
+          <li>newpassword</li>
+          <li>password123</li>
+          <li>test</li>
+          <li>newpassword123</li>
+        </ul>
+      </div>
+    </details>
+
+
+
 
       <!--Enhancment modal-->
       <div id="passwd-enhancer" style="display: none;">
