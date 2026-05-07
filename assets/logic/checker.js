@@ -1,5 +1,5 @@
 //Blacklisted passwords
-const blackList = ['password', '1234567', 'test', 'newpassword', 'password123', 'password1234', 'password12345', 'newpassword123'];
+const blackList = ['password', '1234567', 'test', 'newpassword', 'password123', 'password1234', 'password12345', 'newpassword123' ];
 
 const passInput = document.getElementById('input-Pass');
 const strengthLevel = document.querySelector('.meter-fill');
@@ -33,16 +33,20 @@ const strengthLevel = document.querySelector('.meter-fill');
         bar.style.backgroundColor = color;
     };
 
+
+
 const passwdCheck = (passwd) => {
     //Password rules
    const passwdRules = {
-       length: { regex: null, min: 10, label: 'Password needs a min of 10 characters' },
+        length: { regex: null, min: 10, label: 'Password needs a min of 10 characters' },
         lower: { regex: /[a-z]/, label: 'Password must contain at least 1 lowercase letter' },
         upper: { regex: /[A-Z]/, label: 'Password must contain at least 1 uppercase letter' },
         number: { regex: /[0-9]/, label: 'Password must contain at least 1 number' },
         specialChar: { regex: /[~!@#$%^&*_+\\=/|<>?/.,;:]/, label: 'Password must contain at least one special character' },
-        forbidden: { blacklist: blackList, label: 'Password cannot be in the forbidden list' }
     };
+
+
+
 
     const results = {};
     let rulesPassed = 0;
@@ -62,7 +66,7 @@ const passwdCheck = (passwd) => {
     });
 
     //Check for forbidden passwords
-    results.forbidden = blackList.includes(passwd.toLowerCase());
+    results.forbidden = blackList.includes(passwd.toLowerCase()) || /\s/.test(passwd);
     if(results.forbidden){
         console.log('Forbidden phrase used, enter a different password!!');
     }
